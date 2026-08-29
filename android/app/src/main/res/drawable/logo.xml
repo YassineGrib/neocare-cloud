@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ NEOCARE Clinic - Login & Media Preview Logo
+-->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/neocare_logo_white"
+    android:filter="true"
+    android:gravity="center" />

@@ -1,0 +1,38 @@
+# Binaries & Build outputs
+build_output/
+*.apk
+*.aab
+*.exe
+*.dll
+
+# Gradle & Build caches
+.gradle/
+**/build/
+build/
+.cxx/
+**/.cxx/
+*.hprof
+
+# Git backups
+*.git_backup/
+**/.git_backup/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Nextcloud Server persistent data
+server/data/
+server/db/
