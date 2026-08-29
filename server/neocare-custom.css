@@ -362,37 +362,32 @@ header.header-app {
 /* Header Left Container (Enough Space for Full Logo) */
 #header .header-left {
   min-width: 200px !important;
+  padding-inline-start: 8px !important;
   display: flex !important;
   align-items: center !important;
-  overflow: hidden !important;
 }
 
-/* Pure White Logo in Header (Full, Complete Display) */
+/* Pure White Logo in Header — Override Nextcloud default (62px, position:absolute) */
+#header .logo,
 #header .logo.logo-icon,
-#header div.logo.logo-icon,
-#header .header-left .logo,
-#header .header-left div.logo {
+#header div.logo,
+#header div.logo.logo-icon {
   background-image: url('/custom_backgrounds/neocare_logo_white.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  position: relative !important;
+  inset-inline-start: auto !important;
+  top: auto !important;
+  bottom: auto !important;
   width: 180px !important;
   min-width: 180px !important;
-  height: 34px !important;
+  height: 36px !important;
   mask: none !important;
   -webkit-mask: none !important;
   filter: none !important;
-  margin: 0 8px !important;
-  display: block !important;
-}
-
-/* RTL Header Logo Alignment */
-html[dir='rtl'] #header .logo.logo-icon,
-html[dir='rtl'] #header div.logo.logo-icon,
-body[dir='rtl'] #header .logo.logo-icon,
-body[dir='rtl'] #header div.logo.logo-icon {
-  background-position: center !important;
-  margin: 0 8px !important;
+  display: inline-flex !important;
+  margin: 0 6px !important;
 }
 
 /* Header Text & App Names (Crisp White) */
