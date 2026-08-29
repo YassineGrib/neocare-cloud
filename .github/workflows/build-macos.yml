@@ -53,9 +53,24 @@ jobs:
         run: |
           python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --install-deps nextcloud-client
 
-      - name: Compile and Package Neocare Desktop App
+      - name: Patch Craft Blueprints Imports
+        run: |
+          echo "Patching 'import os' in blueprint python files..."
+          find . -name "*.py" | while read -r f; do
+            if grep -q "os\.path" "$f" && ! grep -q "import os" "$f"; then
+              echo "Patching: $f"
+              sed -i '' '1s/^/import os\n/' "$f"
+            fi
+          done
+
+      - name: Compile Neocare Desktop App
+        run: |
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --options nextcloud-client.srcDir=${{ github.workspace }}/desktop --options nextcloud-client.buildTests=False nextcloud-client
+
+      - name: Package macOS DMG
         run: |
           python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --options nextcloud-client.srcDir=${{ github.workspace }}/desktop --options nextcloud-client.buildTests=False --package nextcloud-client
+
 
       - name: Find Generated Artifacts
         id: find-pkg
