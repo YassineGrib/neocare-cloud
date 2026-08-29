@@ -9,6 +9,7 @@ build_output/
 .gradle/
 **/build/
 build/
+!**/Build.xcconfig
 .cxx/
 **/.cxx/
 *.hprof
