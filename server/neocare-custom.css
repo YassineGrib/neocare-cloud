@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEOCARE CLINIC - Master Nextcloud Custom Stylesheet (Impeccable Edition)
+   NEOCARE CLINIC - Master Nextcloud Custom Stylesheet (Ultimate Edition)
    Brand: Neocare Clinic (Kuwait)
    Palette: Crimson Red (#7c3a3d), Dark Maroon (#290d0d), Gold (#cbab58), Warm Gray (#e3dbd9)
    Typography: IBM Plex Sans Arabic (100 - 700)
@@ -69,7 +69,33 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label, td, th, li {
 }
 
 /* --------------------------------------------------------------------------
-   2. Login Page: Minimalist Frosted Glass Card
+   2. Global Brand Cleanup: Hide All Nextcloud Promotional & External Links
+   -------------------------------------------------------------------------- */
+a[href*='nextcloud.com'],
+a[href*='help.nextcloud.com'],
+a[href*='docs.nextcloud.com'],
+a[href*='forum.nextcloud.com'],
+a[href*='help.nextcloud.org'],
+li[data-id='help'],
+li[data-id='about'],
+li[data-id='apps'],
+.user-menu__item--help,
+.user-menu__item--about,
+.firstrunwizard,
+#firstrunwizard,
+.announcement-modal,
+.update-notification,
+.documentation-link,
+.about-dialog,
+#body-settings #security-warning-link,
+#body-settings .link-marrkdown[href*='nextcloud.com'] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Login Page: Minimalist Frosted Glass Card
    -------------------------------------------------------------------------- */
 #body-login {
   background: linear-gradient(135deg, rgba(41, 13, 13, 0.45) 0%, rgba(124, 58, 61, 0.4) 100%),
@@ -317,7 +343,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label, td, th, li {
 }
 
 /* --------------------------------------------------------------------------
-   3. Main App Header & Navigation Bar (Pure White Logo & Maximum Contrast)
+   4. Main App Header & Navigation Bar (Pure White Logo & Maximum Contrast)
    -------------------------------------------------------------------------- */
 #header,
 header.header-app {
@@ -427,17 +453,70 @@ header.header-app {
 }
 
 /* --------------------------------------------------------------------------
-   4. Left Sidebar & Navigation Drawer Across ALL Pages (Files, Settings, etc.)
+   5. User Dropdown Menu & Popovers (Luxury Frosted Glass)
+   -------------------------------------------------------------------------- */
+#expanddiv,
+.user-menu,
+.popover__wrapper,
+.menu,
+.action-item__menulist,
+.modal-container {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(203, 171, 88, 0.35) !important;
+  box-shadow: 0 16px 48px rgba(41, 13, 13, 0.22) !important;
+  padding: 8px !important;
+}
+
+#expanddiv li a,
+.user-menu a,
+.action-item__menulist a,
+.action-item__menulist button {
+  color: #290d0d !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+#expanddiv li a svg,
+.user-menu a svg,
+.action-item__menulist svg {
+  fill: #7c3a3d !important;
+  stroke: #7c3a3d !important;
+  color: #7c3a3d !important;
+}
+
+#expanddiv li a:hover,
+.user-menu a:hover,
+.action-item__menulist a:hover,
+.action-item__menulist button:hover {
+  background-color: rgba(124, 58, 61, 0.08) !important;
+  color: #7c3a3d !important;
+}
+
+#expanddiv li a:hover svg,
+.user-menu a:hover svg,
+.action-item__menulist a:hover svg {
+  fill: #cbab58 !important;
+  stroke: #cbab58 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Left Sidebar Across ALL Pages (Files, Photos, Activity, Settings)
    -------------------------------------------------------------------------- */
 #app-navigation,
 .app-navigation {
-  background: rgba(20, 10, 10, 0.4) !important;
+  background: rgba(20, 10, 10, 0.45) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-right: 1px solid rgba(203, 171, 88, 0.2) !important;
 }
 
-/* Sidebar List Item Links (High-Contrast Crisp Light Cream/White) */
+/* Sidebar List Item Links */
 #app-navigation ul li a,
 #app-navigation li a,
 .app-navigation__list-item a,
@@ -500,7 +579,7 @@ header.header-app {
 }
 
 /* --------------------------------------------------------------------------
-   5. Files App: Action Buttons, Tables & File Lists
+   7. Files App: Action Buttons, Tables & File Lists
    -------------------------------------------------------------------------- */
 /* Primary '+ New' Action Button */
 #controls .actions a.button,
@@ -584,7 +663,7 @@ table.files-filestable th,
 }
 
 /* --------------------------------------------------------------------------
-   6. Global Dashboard & Widgets
+   8. Global Dashboard & Widgets
    -------------------------------------------------------------------------- */
 body[data-app='dashboard'],
 #body-user,
@@ -606,14 +685,6 @@ body[data-app='dashboard'],
   text-shadow: 0 2px 8px rgba(41, 13, 13, 0.7) !important;
   margin-bottom: 24px !important;
   text-align: center !important;
-}
-
-/* Suppress Promotional Modals */
-.firstrunwizard,
-#firstrunwizard,
-.announcement-modal,
-.update-notification {
-  display: none !important;
 }
 
 #app-content-dashboard {
@@ -690,7 +761,7 @@ h2.widget-title,
 }
 
 /* --------------------------------------------------------------------------
-   7. Settings & Forms Across Nextcloud
+   9. Settings & Forms Across Nextcloud
    -------------------------------------------------------------------------- */
 #body-settings h2,
 #body-settings h3,
