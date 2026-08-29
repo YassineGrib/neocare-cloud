@@ -1,0 +1,72 @@
+name: Build Neocare Clinic macOS App
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/build-macos.yml'
+
+jobs:
+  build-macos:
+    name: Build Neocare macOS Client (DMG)
+    runs-on: macos-15
+    timeout-minutes: 90
+    env:
+      CRAFT_TARGET: macos-clang-arm64
+      CRAFT_MASTER_LOCATION: ${{ github.workspace }}/CraftMaster
+      CRAFT_MASTER_CONFIG: ${{ github.workspace }}/desktop/craftmaster.ini
+      PYTHON_VERSION: "3.12"
+
+    steps:
+      - name: Checkout Monorepo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer || sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Install Build Tools
+        run: |
+          brew install ninja inkscape
+
+      - name: Download CraftMaster
+        run: |
+          git clone -q --depth=1 https://invent.kde.org/packaging/craftmaster.git ${{ env.CRAFT_MASTER_LOCATION }}
+
+      - name: Configure Craft Blueprints
+        run: |
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --add-blueprint-repository "https://github.com/nextcloud/craft-blueprints-kde.git|stable-34.0|"
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --add-blueprint-repository "https://github.com/nextcloud/craft-blueprints-nextcloud.git|stable-34.0|"
+
+      - name: Initialize Craft
+        run: |
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c craft
+
+      - name: Install Dependencies
+        run: |
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --install-deps nextcloud-client
+
+      - name: Compile and Package Neocare Desktop App
+        run: |
+          python "${{ env.CRAFT_MASTER_LOCATION }}/CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c --options nextcloud-client.srcDir=${{ github.workspace }}/desktop --options nextcloud-client.buildTests=False --package nextcloud-client
+
+      - name: Find Generated Artifacts
+        id: find-pkg
+        run: |
+          mkdir -p ${{ github.workspace }}/dist-macos
+          find ${{ github.workspace }}/${{ env.CRAFT_TARGET }} -name "*.dmg" -o -name "*.pkg" -o -name "*.app" -exec cp -rv {} ${{ github.workspace }}/dist-macos/ \;
+          ls -la ${{ github.workspace }}/dist-macos/
+
+      - name: Upload macOS App Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Neocare-Clinic-macOS-AppleSilicon
+          path: ${{ github.workspace }}/dist-macos/*
+          if-no-files-found: warn
