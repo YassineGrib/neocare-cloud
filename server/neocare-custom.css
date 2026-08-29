@@ -77,29 +77,19 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label {
   background-size: cover !important;
 }
 
-/* Transparent Header & Neocare Logo */
+/* Hide Top Header & Standalone Top Logo */
 #body-login header,
 #body-login #header,
-#body-login .header-guest {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding-top: 40px !important;
-  margin-bottom: 24px !important;
-}
-
+#body-login .header-guest,
 #body-login .header-guest .logo,
 #body-login #header .logo,
-#body-login .logo {
-  background: url('/core/img/logo/logo.png') no-repeat center center !important;
-  background-size: contain !important;
-  width: 280px !important;
-  height: 100px !important;
-  max-width: 90vw !important;
-  margin: 0 auto !important;
-  mask: none !important;
-  -webkit-mask: none !important;
-  filter: drop-shadow(0 6px 20px rgba(41, 13, 13, 0.4)) !important;
+#body-login > .logo {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
 }
 
 /* Reset All Outer Containers (Zero Ghost Frames) */
