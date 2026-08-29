@@ -279,33 +279,39 @@ body[dir='rtl'] #header .logo {
 }
 
 /* --------------------------------------------------------------------------
-   5. Settings Page: Full Luxury Glassmorphism & High-Contrast Forms
+   5. Settings Page: Unified Luxury Glassmorphism & Flawless Grid
    -------------------------------------------------------------------------- */
-#body-settings,
-#app-content-settings,
-.settings-content,
-#app-content-wrapper {
-  background: transparent !important;
+/* The Entire Settings Workspace as ONE Cohesive Frosted Glass Container */
+#body-settings #app-content,
+#body-settings #app-content-wrapper,
+#body-settings #app-content-settings,
+#body-settings .settings-content {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(32px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(190%) !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(227, 219, 217, 0.9) !important;
+  box-shadow: 0 16px 48px rgba(41, 13, 13, 0.12),
+              0 1px 3px rgba(203, 171, 88, 0.2) !important;
+  padding: 32px 36px !important;
+  margin: 16px !important;
+  color: #290d0d !important;
 }
 
-/* Settings Cards & Sections */
+/* Eradicate Individual Chunky Bricks Around Every Input */
 #body-settings section,
 #body-settings .section,
 #body-settings .app-settings-section,
 #body-settings .card,
 #body-settings .personal-settings-setting-box,
 #body-settings fieldset,
-.settings-section,
-.app-settings-section {
-  background: rgba(255, 255, 255, 0.94) !important;
-  backdrop-filter: blur(28px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(227, 219, 217, 0.9) !important;
-  box-shadow: 0 12px 36px rgba(41, 13, 13, 0.08),
-              0 1px 3px rgba(203, 171, 88, 0.15) !important;
-  padding: 24px !important;
-  margin-bottom: 24px !important;
+#body-settings .grid,
+#body-settings .form-group {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px 12px !important;
+  margin: 0 !important;
   color: #290d0d !important;
 }
 
@@ -317,27 +323,29 @@ body[dir='rtl'] #header .logo {
 #body-settings .section h3,
 #body-settings .app-settings-section h2,
 #body-settings .app-settings-section h3,
-#body-settings legend {
+#body-settings legend,
+#body-settings .header h2 {
   color: #7c3a3d !important;
   font-size: 20px !important;
   font-weight: 700 !important;
   border-bottom: 2px solid rgba(203, 171, 88, 0.35) !important;
-  padding-bottom: 10px !important;
-  margin-bottom: 18px !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 16px !important;
 }
 
-/* Labels, Descriptions & Subtitles */
+/* Labels, Descriptions & Field Hints */
 #body-settings label,
 #body-settings p,
 #body-settings span,
 #body-settings .hint,
-#body-settings .description {
+#body-settings .description,
+#body-settings h3 {
   color: #290d0d !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-size: 14.5px !important;
 }
 
-/* Form Inputs in Settings (Clean White, High Contrast) */
+/* Form Inputs in Settings (Clean White, High Contrast, Normal Proportions) */
 #body-settings input[type='text'],
 #body-settings input[type='password'],
 #body-settings input[type='email'],
@@ -347,13 +355,15 @@ body[dir='rtl'] #header .logo {
 #body-settings textarea {
   background: #ffffff !important;
   color: #290d0d !important;
-  border: 1.5px solid rgba(124, 58, 61, 0.4) !important;
+  border: 1.5px solid rgba(124, 58, 61, 0.35) !important;
   border-radius: 12px !important;
-  padding: 12px 16px !important;
-  font-size: 14.5px !important;
-  font-weight: 600 !important;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
   transition: all 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 #body-settings input:focus,
@@ -367,7 +377,7 @@ body[dir='rtl'] #header .logo {
 /* Completely Suppress Any Black Badge Labels */
 #body-settings label.floating-label,
 #body-settings label.input-label,
-.input-wrapper label:not(.checkbox-label) {
+#body-settings .input-wrapper label:not(.checkbox-label) {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
@@ -382,8 +392,8 @@ body[dir='rtl'] #header .logo {
   border-radius: 10px !important;
   color: #ffffff !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
-  padding: 10px 24px !important;
+  font-size: 14px !important;
+  padding: 9px 20px !important;
   box-shadow: 0 4px 14px rgba(124, 58, 61, 0.3) !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
@@ -397,14 +407,27 @@ body[dir='rtl'] #header .logo {
 }
 
 /* --------------------------------------------------------------------------
-   6. Left Navigation Sidebar Across ALL Pages
+   6. Left / Right Navigation Sidebar Across ALL Pages
    -------------------------------------------------------------------------- */
 #app-navigation,
 .app-navigation {
-  background: rgba(20, 10, 10, 0.45) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(20, 10, 10, 0.5) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   border-right: 1px solid rgba(203, 171, 88, 0.2) !important;
+}
+
+/* Sidebar Section Headers ("Personal", "Administration") */
+#app-navigation .app-navigation__header,
+#app-navigation h2,
+#app-navigation h3,
+#app-navigation .nav-header {
+  color: #cbab58 !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px !important;
+  padding: 16px 18px 6px 18px !important;
+  text-transform: uppercase !important;
 }
 
 #app-navigation ul li a,
@@ -413,8 +436,9 @@ body[dir='rtl'] #header .logo {
 #app-navigation a,
 #app-navigation span:not(.app-navigation-entry__counter) {
   color: #e3dbd9 !important;
-  font-size: 14.5px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
+  transition: all 0.2s ease !important;
 }
 
 #app-navigation svg,
@@ -423,16 +447,24 @@ body[dir='rtl'] #header .logo {
   fill: #cbab58 !important;
   stroke: #cbab58 !important;
   color: #cbab58 !important;
+  opacity: 0.95 !important;
 }
 
 #app-navigation ul li.active > a,
 #app-navigation li.active a,
 .app-navigation__list-item--active a {
-  background: rgba(124, 58, 61, 0.45) !important;
+  background: rgba(124, 58, 61, 0.5) !important;
   color: #ffffff !important;
   font-weight: 700 !important;
   border-left: 3.5px solid #cbab58 !important;
   border-radius: 0 10px 10px 0 !important;
+}
+
+html[dir='rtl'] #app-navigation ul li.active > a,
+body[dir='rtl'] #app-navigation ul li.active > a {
+  border-left: none !important;
+  border-right: 3.5px solid #cbab58 !important;
+  border-radius: 10px 0 0 10px !important;
 }
 
 /* --------------------------------------------------------------------------
