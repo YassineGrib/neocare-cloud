@@ -761,21 +761,44 @@ h2.widget-title,
 }
 
 /* --------------------------------------------------------------------------
-   9. Settings & Forms Across Nextcloud
+   10. Native RTL & Arabic Language Optimizations
    -------------------------------------------------------------------------- */
-#body-settings h2,
-#body-settings h3,
-.section h2,
-.section h3 {
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  border-bottom: 2px solid rgba(203, 171, 88, 0.3) !important;
-  padding-bottom: 8px !important;
+html[dir='rtl'],
+body[dir='rtl'],
+body[data-locale^='ar'],
+body.rtl {
+  direction: rtl !important;
+  text-align: right !important;
 }
 
-#body-settings label,
-#body-settings p,
-.section p,
-.section label {
-  color: #e3dbd9 !important;
+/* RTL Header Adjustments */
+html[dir='rtl'] #header .logo,
+body[dir='rtl'] #header .logo,
+body[dir='rtl'] #header .header-left .logo {
+  background-position: right center !important;
+  margin: 0 4px 0 12px !important;
 }
+
+/* RTL Sidebar Active Indicator (Right Border) */
+html[dir='rtl'] #app-navigation ul li.active > a,
+body[dir='rtl'] #app-navigation ul li.active > a,
+body[dir='rtl'] #app-navigation li.active a {
+  border-left: none !important;
+  border-right: 3.5px solid #cbab58 !important;
+  border-radius: 10px 0 0 10px !important;
+}
+
+/* RTL Inputs & Form Alignments */
+html[dir='rtl'] input[type='text'],
+html[dir='rtl'] input[type='password'],
+html[dir='rtl'] input[type='search'],
+body[dir='rtl'] input,
+body[dir='rtl'] textarea {
+  text-align: right !important;
+}
+
+html[dir='rtl'] .unified-search__input-wrapper,
+body[dir='rtl'] .unified-search__input-wrapper {
+  flex-direction: row-reverse !important;
+}
+
