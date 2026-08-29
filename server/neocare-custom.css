@@ -350,15 +350,17 @@ header.header-app {
   background: linear-gradient(135deg, #290d0d 0%, #7c3a3d 100%) !important;
   box-shadow: 0 4px 20px rgba(41, 13, 13, 0.35) !important;
   border-bottom: 1px solid rgba(203, 171, 88, 0.35) !important;
+  overflow: visible !important;
 }
 
 /* Header Left Container & Trigger (Expanded for Full Brand Wordmark) */
 #header .header-left,
+#header .header-right,
 #header a.header-menu__trigger--logo,
 #header .header-menu__trigger {
   width: auto !important;
-  min-width: 180px !important;
-  max-width: 240px !important;
+  min-width: 210px !important;
+  max-width: 260px !important;
   display: flex !important;
   align-items: center !important;
   overflow: visible !important;
@@ -373,13 +375,26 @@ header.header-app {
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
-  width: 180px !important;
-  min-width: 180px !important;
-  height: 38px !important;
+  width: 200px !important;
+  min-width: 200px !important;
+  height: 42px !important;
   mask: none !important;
   -webkit-mask: none !important;
   filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
-  margin: 0 8px 0 4px !important;
+  margin: 0 12px !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* RTL Header Logo Alignment (Right Aligned with Generous Padding) */
+html[dir='rtl'] #header .logo,
+html[dir='rtl'] #header .logo-icon,
+html[dir='rtl'] #header .header-left .logo,
+body[dir='rtl'] #header .logo,
+body[dir='rtl'] #header .logo-icon,
+body[dir='rtl'] #header .header-left .logo {
+  background-position: right center !important;
+  margin: 0 8px 0 16px !important;
 }
 
 /* Header Text & App Names (Crisp White) */
@@ -420,6 +435,28 @@ header.header-app {
   opacity: 0.95 !important;
 }
 
+/* Header Trigger Buttons (Clean Transparent without Dark Squares) */
+#header .header-menu li,
+#header .header-menu li a,
+#header .header-menu__trigger,
+#header #settings,
+#header #notifications,
+#header .notifications,
+#header .user-status-menu__toggle {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#header .header-menu li:hover a,
+#header .header-menu__trigger:hover,
+#header .header-menu__trigger:focus,
+#header .header-menu li.active a,
+#header .header-menu__trigger--open {
+  background: rgba(203, 171, 88, 0.22) !important;
+  border-radius: 12px !important;
+}
+
 /* Header Unified Search Bar (High Contrast Input) */
 .unified-search,
 .unified-search__trigger,
@@ -456,53 +493,108 @@ header.header-app {
    5. User Dropdown Menu & Popovers (Luxury Frosted Glass)
    -------------------------------------------------------------------------- */
 #expanddiv,
+.user-status-menu,
 .user-menu,
 .popover__wrapper,
+.popover,
+.popover-menu,
 .menu,
+.menu-popover,
 .action-item__menulist,
-.modal-container {
+.action-item__menulist--open,
+.modal-container,
+.dialog,
+.oc-dialog {
   background: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-radius: 16px !important;
-  border: 1px solid rgba(203, 171, 88, 0.35) !important;
-  box-shadow: 0 16px 48px rgba(41, 13, 13, 0.22) !important;
-  padding: 8px !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(203, 171, 88, 0.4) !important;
+  box-shadow: 0 20px 60px rgba(41, 13, 13, 0.28),
+              0 2px 10px rgba(203, 171, 88, 0.15) !important;
+  color: #290d0d !important;
+  padding: 10px !important;
 }
 
-#expanddiv li a,
+/* User Menu Header / Display Name */
+.user-status-menu__header,
+.user-menu__header,
+.popover__wrapper header,
+.popover__wrapper h1,
+.popover__wrapper h2,
+.popover__wrapper h3,
+.popover__wrapper h4,
+.user-status-menu .user-status-menu__user-name,
+.user-status-menu strong,
+#expanddiv .user-status-menu__header {
+  color: #7c3a3d !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  border-bottom: 1.5px solid rgba(203, 171, 88, 0.3) !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+/* User Menu & Popover Items */
+#expanddiv li,
+.user-status-menu li,
+.user-menu li,
+.popover__wrapper li,
+.menu li,
+.action-item__menulist li,
+#expanddiv a,
+.user-status-menu a,
 .user-menu a,
+.popover__wrapper a,
+.popover__wrapper button,
 .action-item__menulist a,
 .action-item__menulist button {
   color: #290d0d !important;
-  font-size: 14px !important;
   font-weight: 600 !important;
+  font-size: 14.5px !important;
   border-radius: 10px !important;
   padding: 10px 14px !important;
   transition: all 0.2s ease !important;
 }
 
-#expanddiv li a svg,
-.user-menu a svg,
-.action-item__menulist svg {
+/* User Menu & Popover Icons */
+#expanddiv svg,
+.user-status-menu svg,
+.user-menu svg,
+.popover__wrapper svg,
+.action-item__menulist svg,
+.user-status-menu [class^='icon-'],
+.user-menu [class^='icon-'] {
   fill: #7c3a3d !important;
   stroke: #7c3a3d !important;
   color: #7c3a3d !important;
 }
 
-#expanddiv li a:hover,
+/* Hover on Popover Items */
+#expanddiv li:hover,
+.user-status-menu li:hover,
+.user-menu li:hover,
+.popover__wrapper li:hover,
+.action-item__menulist li:hover,
+#expanddiv a:hover,
+.user-status-menu a:hover,
 .user-menu a:hover,
+.popover__wrapper a:hover,
+.popover__wrapper button:hover,
 .action-item__menulist a:hover,
 .action-item__menulist button:hover {
   background-color: rgba(124, 58, 61, 0.08) !important;
   color: #7c3a3d !important;
 }
 
-#expanddiv li a:hover svg,
-.user-menu a:hover svg,
-.action-item__menulist a:hover svg {
+#expanddiv li:hover svg,
+.user-status-menu li:hover svg,
+.user-menu li:hover svg,
+.popover__wrapper li:hover svg,
+.action-item__menulist li:hover svg {
   fill: #cbab58 !important;
   stroke: #cbab58 !important;
+  color: #cbab58 !important;
 }
 
 /* --------------------------------------------------------------------------
