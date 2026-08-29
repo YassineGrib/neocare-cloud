@@ -2,6 +2,8 @@
 
 وثيقة شاملة تحتوي على حالة المشروع، بيانات الخادم، تفاصيل حزمة الأندرويد، ودليل التخصيص عبر كافة المنصات.
 
+* **مستودع المشروع على GitHub**: [https://github.com/YassineGrib/neocare-cloud](https://github.com/YassineGrib/neocare-cloud) (Private Monorepo)
+
 ---
 
 ## 1. 🌐 خادم Nextcloud المحلي (Nextcloud Server)
