@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEOCARE CLINIC - Nextcloud Web Custom Stylesheet (Anti-Slop Craft Edition)
+   NEOCARE CLINIC - Master Nextcloud Custom Stylesheet (Impeccable Edition)
    Brand: Neocare Clinic (Kuwait)
    Palette: Crimson Red (#7c3a3d), Dark Maroon (#290d0d), Gold (#cbab58), Warm Gray (#e3dbd9)
    Typography: IBM Plex Sans Arabic (100 - 700)
@@ -62,14 +62,14 @@
 html, body, input, button, select, textarea,
 .app-name, .header-appname, .unified-search__input,
 .button-vue, .primary, .dashboard-widget, .crumb,
-h1, h2, h3, h4, h5, h6, p, span, a, div, label {
+h1, h2, h3, h4, h5, h6, p, span, a, div, label, td, th, li {
   font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* --------------------------------------------------------------------------
-   2. Login Page: Full Neocare Clinic World-Class Re-Engineering
+   2. Login Page: Minimalist Frosted Glass Card
    -------------------------------------------------------------------------- */
 #body-login {
   background: linear-gradient(135deg, rgba(41, 13, 13, 0.45) 0%, rgba(124, 58, 61, 0.4) 100%),
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label {
   opacity: 0 !important;
 }
 
-/* Reset All Outer Containers (Zero Ghost Frames) */
+/* Reset All Outer Containers */
 #body-login .wrapper,
 #body-login main,
 #body-login .guest-content,
@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label {
   display: flex !important;
   flex-direction: column-reverse !important;
   margin-bottom: 20px !important;
-  text-align: right !important; /* Arabic friendly */
+  text-align: right !important;
 }
 
 #body-login input[type='text'],
@@ -317,18 +317,21 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, label {
 }
 
 /* --------------------------------------------------------------------------
-   3. Main App Header & Navigation Bar (High-Contrast Impeccable Craft)
+   3. Main App Header & Navigation Bar (Pure White Logo & Maximum Contrast)
    -------------------------------------------------------------------------- */
 #header,
 header.header-app {
   background: linear-gradient(135deg, #290d0d 0%, #7c3a3d 100%) !important;
-  box-shadow: 0 4px 20px rgba(41, 13, 13, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(41, 13, 13, 0.35) !important;
   border-bottom: 1px solid rgba(203, 171, 88, 0.35) !important;
 }
 
+/* Pure White Logo in Header */
 #header .logo,
-#header .header-left .logo {
-  background-image: url('/core/img/logo/logo.png') !important;
+#header .header-left .logo,
+#header a.header-left,
+.header-left {
+  background-image: url('/custom_backgrounds/neocare_logo_white.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
@@ -336,6 +339,7 @@ header.header-app {
   height: 38px !important;
   mask: none !important;
   -webkit-mask: none !important;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
 }
 
 /* Header Text & App Names (Crisp White) */
@@ -356,8 +360,8 @@ header.header-app {
 #header .app-menu-main li.active a,
 #header .app-menu-main li a:hover,
 .header-menu__wrapper a:hover {
-  background: rgba(203, 171, 88, 0.22) !important;
-  color: #cbab58 !important;
+  background: rgba(203, 171, 88, 0.25) !important;
+  color: #ffffff !important;
   border-bottom: 2px solid #cbab58 !important;
 }
 
@@ -395,7 +399,7 @@ header.header-app {
 #header input[type='search']::placeholder,
 #header .unified-search__input::placeholder,
 .unified-search__trigger span {
-  color: rgba(255, 255, 255, 0.82) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   font-weight: 500 !important;
 }
 
@@ -409,7 +413,164 @@ header.header-app {
 }
 
 /* --------------------------------------------------------------------------
-   4. Glassmorphism Dashboard & Background (Logged-in)
+   4. Left Sidebar & Navigation Drawer Across ALL Pages (Files, Settings, etc.)
+   -------------------------------------------------------------------------- */
+#app-navigation,
+.app-navigation {
+  background: rgba(20, 10, 10, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-right: 1px solid rgba(203, 171, 88, 0.2) !important;
+}
+
+/* Sidebar List Item Links (High-Contrast Crisp Light Cream/White) */
+#app-navigation ul li a,
+#app-navigation li a,
+.app-navigation__list-item a,
+#app-navigation a,
+#app-navigation span:not(.app-navigation-entry__counter) {
+  color: #e3dbd9 !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Sidebar Icons (Brilliant Gold Accent) */
+#app-navigation svg,
+#app-navigation [class^='icon-'],
+#app-navigation [class*=' icon-'] {
+  fill: #cbab58 !important;
+  stroke: #cbab58 !important;
+  color: #cbab58 !important;
+  opacity: 0.95 !important;
+}
+
+/* Sidebar Active Item */
+#app-navigation ul li.active > a,
+#app-navigation li.active a,
+.app-navigation__list-item--active a {
+  background: rgba(124, 58, 61, 0.45) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-left: 3.5px solid #cbab58 !important;
+  border-radius: 0 10px 10px 0 !important;
+  box-shadow: inset 0 0 12px rgba(124, 58, 61, 0.3) !important;
+}
+
+#app-navigation ul li.active > a span,
+#app-navigation li.active a span {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Sidebar Hover Item */
+#app-navigation ul li:not(.active) > a:hover,
+#app-navigation li:not(.active) a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+/* Sidebar Footer & Quota ("27.8 MB used", Settings) */
+#app-navigation .app-navigation-entry__utils,
+#app-navigation footer,
+#app-navigation #quota,
+#app-settings,
+#app-navigation #app-settings-btn {
+  color: #d0c8c6 !important;
+  font-weight: 500 !important;
+}
+
+#app-navigation #app-settings-btn:hover {
+  color: #cbab58 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Files App: Action Buttons, Tables & File Lists
+   -------------------------------------------------------------------------- */
+/* Primary '+ New' Action Button */
+#controls .actions a.button,
+.button-vue--vue-primary.new-button,
+#controls .button-vue,
+.actions .button.new {
+  background: linear-gradient(135deg, #7c3a3d 0%, #914923 100%) !important;
+  border: 1px solid rgba(203, 171, 88, 0.4) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  padding: 8px 16px !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 61, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+#controls .actions a.button:hover,
+.button-vue--vue-primary.new-button:hover {
+  background: linear-gradient(135deg, #cbab58 0%, #7c3a3d 100%) !important;
+  box-shadow: 0 6px 16px rgba(203, 171, 88, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Files Table Header (Name, Size, Modified) */
+#fileList th,
+table.files-filestable th,
+.files-list__header {
+  color: #cbab58 !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  letter-spacing: 0.2px !important;
+  border-bottom: 2px solid rgba(203, 171, 88, 0.3) !important;
+}
+
+/* File & Folder Rows (Crisp 100% White Filenames) */
+#fileList tr td.filename a,
+.files-list__row-name,
+#fileList .nametext,
+#fileList .innernametext,
+.files-list__row-name .files-list__row-name-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14.5px !important;
+}
+
+/* File Metadata (File size, Date) */
+#fileList tr td.filesize,
+#fileList tr td.date,
+.files-list__row-size,
+.files-list__row-modified,
+#fileList .modified {
+  color: #d0c8c6 !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+
+/* Table Row Hover & Active State */
+#fileList tr:hover,
+.files-list__row:hover {
+  background-color: rgba(124, 58, 61, 0.25) !important;
+  border-radius: 8px !important;
+}
+
+#fileList tr.selected,
+.files-list__row.selected {
+  background-color: rgba(124, 58, 61, 0.45) !important;
+  border-radius: 8px !important;
+}
+
+/* Row Action Icons (... and share) */
+#fileList .action,
+.files-list__row-actions a,
+.files-list__row-actions svg {
+  color: #e3dbd9 !important;
+  fill: #e3dbd9 !important;
+}
+
+#fileList .action:hover,
+.files-list__row-actions a:hover {
+  color: #cbab58 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Global Dashboard & Widgets
    -------------------------------------------------------------------------- */
 body[data-app='dashboard'],
 #body-user,
@@ -419,21 +580,21 @@ body[data-app='dashboard'],
   background-size: cover !important;
 }
 
-/* Dashboard Greeting (High-Contrast Bold Typography) */
+/* Dashboard Greeting */
 #app-content-dashboard .greeting,
 #app-content-dashboard h2.greeting,
 .dashboard__greeting,
 .greeting {
-  color: #290d0d !important;
+  color: #ffffff !important;
   font-size: 32px !important;
   font-weight: 800 !important;
   letter-spacing: -0.5px !important;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+  text-shadow: 0 2px 8px rgba(41, 13, 13, 0.7) !important;
   margin-bottom: 24px !important;
   text-align: center !important;
 }
 
-/* Suppress any Promotional or First-Run Modals */
+/* Suppress Promotional Modals */
 .firstrunwizard,
 #firstrunwizard,
 .announcement-modal,
@@ -445,7 +606,7 @@ body[data-app='dashboard'],
   padding: 32px 24px !important;
 }
 
-/* Dashboard Cards (Frosted Glass with Clear Hierarchy) */
+/* Dashboard Cards */
 .dashboard-widget,
 #app-content-dashboard .panel,
 .dashboard-container .widget,
@@ -468,7 +629,7 @@ body[data-app='dashboard'],
   border-color: rgba(203, 171, 88, 0.6) !important;
 }
 
-/* Card Header Title (Deep Crimson) */
+/* Card Header Title */
 .dashboard-widget h2,
 .dashboard-widget .title,
 h2.widget-title,
@@ -482,7 +643,7 @@ h2.widget-title,
   background: transparent !important;
 }
 
-/* Widget Inner Item Links & File Names (Crystal-Clear Dark Charcoal) */
+/* Widget Items */
 .dashboard-widget a,
 .dashboard-widget span,
 .dashboard-widget p,
@@ -495,7 +656,6 @@ h2.widget-title,
   font-size: 15px !important;
 }
 
-/* Secondary Subtitles, Timestamps & Metadata ("Last updated", etc.) */
 .dashboard-widget .file-details,
 .dashboard-widget .item-subtitle,
 .dashboard-widget .dashboard-widget__item-subtitle,
@@ -507,7 +667,6 @@ h2.widget-title,
   font-size: 13px !important;
 }
 
-/* Widget Inner Row Item Hover */
 .dashboard-widget li:hover,
 .dashboard-widget .dashboard-widget__item:hover,
 .dashboard-widget a:hover {
@@ -517,35 +676,21 @@ h2.widget-title,
 }
 
 /* --------------------------------------------------------------------------
-   5. Files View & Sidebar
+   7. Settings & Forms Across Nextcloud
    -------------------------------------------------------------------------- */
-#app-navigation ul li.active > a,
-#app-navigation ul li a:hover {
-  background-color: rgba(124, 58, 61, 0.08) !important;
-  color: #7c3a3d !important;
-  border-radius: 8px !important;
-}
-
-#app-navigation ul li.active > a {
-  border-left: 4px solid #7c3a3d !important;
+#body-settings h2,
+#body-settings h3,
+.section h2,
+.section h3 {
+  color: #ffffff !important;
   font-weight: 700 !important;
+  border-bottom: 2px solid rgba(203, 171, 88, 0.3) !important;
+  padding-bottom: 8px !important;
 }
 
-#fileList tr:hover,
-.files-list__row:hover {
-  background-color: rgba(124, 58, 61, 0.04) !important;
-}
-
-#fileList tr.selected,
-.files-list__row.selected {
-  background-color: rgba(124, 58, 61, 0.1) !important;
-}
-
-a, .primary-color {
-  color: #7c3a3d !important;
-  transition: color 0.2s ease !important;
-}
-
-a:hover {
-  color: #cbab58 !important;
+#body-settings label,
+#body-settings p,
+.section p,
+.section label {
+  color: #e3dbd9 !important;
 }
