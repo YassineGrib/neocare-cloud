@@ -918,24 +918,83 @@ body[dir='rtl'] .unified-search__input-wrapper {
 }
 
 /* --------------------------------------------------------------------------
-   11. Universal Dialogs, Modals & Auth Prompts (High Contrast Impeccable Craft)
+   11. Universal Dialogs, Modals & Auth Prompts (Impeccable Zero-Slop Craft)
    -------------------------------------------------------------------------- */
-/* Modal Container Backdrop */
+/* Modal Container Outer Shell */
 .modal-wrapper,
 .modal-container,
 .oc-dialog,
 .dialog,
 div[role='dialog'],
-.modal,
-.modal-container__content {
-  background: rgba(255, 255, 255, 0.98) !important;
+.modal {
+  background: rgba(255, 255, 255, 0.96) !important;
   backdrop-filter: blur(32px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
   border-radius: 24px !important;
   border: 1px solid rgba(203, 171, 88, 0.45) !important;
-  box-shadow: 0 32px 90px rgba(41, 13, 13, 0.35),
-              0 0 0 1px rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 32px 90px rgba(41, 13, 13, 0.35) !important;
   color: #290d0d !important;
+  overflow: hidden !important;
+}
+
+/* Eradicate Any Pitch-Black Nested Boxes Inside Modals */
+.modal-container__content,
+.modal-container__main,
+.modal-container__sidebar,
+.modal-wrapper__content,
+.modal-wrapper__main,
+.modal-container main,
+.modal-container section,
+.modal-container div[class*='content'],
+.modal-container div[class*='main'],
+.modal-container div[class*='sidebar'],
+div[role='dialog'] main,
+div[role='dialog'] section,
+div[role='dialog'] div[class*='content'],
+div[role='dialog'] div[class*='main'],
+div[role='dialog'] div[class*='sidebar'] {
+  background: transparent !important;
+  color: #290d0d !important;
+  box-shadow: none !important;
+}
+
+/* Modal Sub-Cards & Sections */
+.modal-container .card,
+.modal-container .section,
+.modal-container fieldset,
+div[role='dialog'] .card,
+div[role='dialog'] .section,
+div[role='dialog'] fieldset,
+div[role='dialog'] [class*='card'],
+div[role='dialog'] [class*='section'] {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(227, 219, 217, 0.9) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(41, 13, 13, 0.05) !important;
+  color: #290d0d !important;
+  margin-bottom: 16px !important;
+  padding: 20px !important;
+}
+
+/* Modal Sidebar Links (e.g., Settings Drawer) */
+div[role='dialog'] div[class*='sidebar'] a,
+div[role='dialog'] div[class*='sidebar'] button,
+div[role='dialog'] div[class*='sidebar'] li {
+  color: #290d0d !important;
+  font-weight: 600 !important;
+  font-size: 14.5px !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+div[role='dialog'] div[class*='sidebar'] a.active,
+div[role='dialog'] div[class*='sidebar'] button.active,
+div[role='dialog'] div[class*='sidebar'] li.active,
+div[role='dialog'] div[class*='sidebar'] a:hover,
+div[role='dialog'] div[class*='sidebar'] button:hover {
+  background: rgba(124, 58, 61, 0.12) !important;
+  color: #7c3a3d !important;
+  font-weight: 700 !important;
 }
 
 /* Modal Backdrop Scrim Overlay */
