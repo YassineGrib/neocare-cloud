@@ -1,5 +1,4 @@
 <?php
-define('OC_CONSOLE', true);
 require_once '/var/www/html/lib/base.php';
 
 $css = file_get_contents('/tmp/neocare-custom.css');
@@ -8,8 +7,7 @@ if ($css === false || empty($css)) {
     exit(1);
 }
 
-$config = \OC::$server->getConfig();
-$config->setAppValue('theming_customcss', 'customcss', $css);
-$config->setAppValue('theming_customcss', 'cachebuster', (string)time());
+\OC::$server->getConfig()->setAppValue('theming_customcss', 'customcss', $css);
+\OC::$server->getConfig()->setAppValue('theming_customcss', 'cachebuster', (string)time());
 
-echo "Custom CSS injected successfully! (" . strlen($css) . " bytes)\n";
+echo "CSS successfully injected! Total bytes: " . strlen($css) . "\n";
