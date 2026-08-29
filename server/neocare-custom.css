@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEOCARE CLINIC - Master White-Label Stylesheet (Impeccable Edition)
+   NEOCARE CLINIC - Master White-Label Stylesheet (Impeccable & Dark-Mode Edition)
    Brand: Neocare Clinic (Kuwait)
    Palette: Crimson Red (#7c3a3d), Dark Maroon (#290d0d), Gold (#cbab58), Warm Gray (#e3dbd9)
    Typography: IBM Plex Sans Arabic (100 - 700)
@@ -206,10 +206,14 @@ header.header-app {
   overflow: hidden !important;
 }
 
-/* Header Left Container */
-#header .header-left {
-  min-width: 190px !important;
-  padding: 0 8px !important;
+/* Header Left Container (Tight Flush Alignment) */
+#header .header-left,
+#header a.header-menu__trigger--logo,
+#header .header-menu__trigger--logo {
+  min-width: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: flex !important;
   align-items: center !important;
 }
@@ -226,25 +230,41 @@ header.header-app {
   inset-inline-start: auto !important;
   top: auto !important;
   bottom: auto !important;
-  width: 160px !important;
-  min-width: 160px !important;
+  width: 155px !important;
+  min-width: 155px !important;
   height: 36px !important;
   mask: none !important;
   -webkit-mask: none !important;
   filter: none !important;
   display: inline-flex !important;
-  margin: 0 4px !important;
 }
 
-/* Alignment for LTR and RTL */
+/* LTR Alignment (Flush to Left Edge) */
+html[dir='ltr'] #header .header-left,
+body[dir='ltr'] #header .header-left,
+html:not([dir='rtl']) #header .header-left {
+  margin-left: 12px !important;
+  margin-right: 8px !important;
+}
+
 html[dir='ltr'] #header .logo,
-body[dir='ltr'] #header .logo {
+body[dir='ltr'] #header .logo,
+html:not([dir='rtl']) #header .logo {
   background-position: left center !important;
+  margin: 0 8px 0 0 !important;
+}
+
+/* RTL Alignment (Flush to Right Edge) */
+html[dir='rtl'] #header .header-left,
+body[dir='rtl'] #header .header-left {
+  margin-right: 12px !important;
+  margin-left: 8px !important;
 }
 
 html[dir='rtl'] #header .logo,
 body[dir='rtl'] #header .logo {
   background-position: right center !important;
+  margin: 0 0 0 8px !important;
 }
 
 /* Header Text & App Icons */
@@ -279,9 +299,124 @@ body[dir='rtl'] #header .logo {
 }
 
 /* --------------------------------------------------------------------------
-   5. Settings Page: Unified Luxury Glassmorphism & Flawless Grid
+   5. Universal Left Navigation Sidebar (High-Contrast & Beautiful in ALL Themes)
    -------------------------------------------------------------------------- */
-/* The Entire Settings Workspace as ONE Cohesive Frosted Glass Container */
+#app-navigation,
+.app-navigation {
+  background: rgba(20, 10, 10, 0.55) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border-right: 1px solid rgba(203, 171, 88, 0.25) !important;
+}
+
+/* Sidebar Headings ("Personal", "Administration", "Settings") */
+#app-navigation h2,
+#app-navigation h3,
+#app-navigation h4,
+#app-navigation .app-navigation-heading,
+#app-navigation .app-navigation__heading,
+#app-navigation .app-navigation__header,
+#app-navigation .nav-header,
+#app-navigation .heading {
+  color: #cbab58 !important;
+  font-weight: 800 !important;
+  font-size: 14.5px !important;
+  letter-spacing: 0.5px !important;
+  padding: 16px 18px 6px 18px !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid rgba(203, 171, 88, 0.18) !important;
+  margin-bottom: 8px !important;
+}
+
+/* All Sidebar Links & Titles (Crisp Light Cream / White) */
+#app-navigation a,
+#app-navigation a span,
+#app-navigation span,
+#app-navigation .app-navigation-entry-link,
+#app-navigation .app-navigation-entry__title,
+#app-navigation .app-navigation__list-item a,
+#app-navigation ul li a,
+#app-navigation li a,
+#app-navigation .app-navigation-entry {
+  color: #e3dbd9 !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Sidebar Icons (Brilliant Gold) */
+#app-navigation svg,
+#app-navigation [class^='icon-'],
+#app-navigation [class*=' icon-'],
+#app-navigation .app-navigation-entry__icon {
+  fill: #cbab58 !important;
+  stroke: #cbab58 !important;
+  color: #cbab58 !important;
+  opacity: 0.95 !important;
+}
+
+/* Sidebar Item Hover */
+#app-navigation a:hover,
+#app-navigation a:hover span,
+#app-navigation .app-navigation-entry-link:hover,
+#app-navigation li:hover > a,
+#app-navigation li:hover span {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Sidebar Active Item */
+#app-navigation .active,
+#app-navigation .active > a,
+#app-navigation .active > a span,
+#app-navigation li.active a,
+#app-navigation li.active span,
+#app-navigation .app-navigation-entry-link.active,
+#app-navigation .app-navigation-entry-link.active span,
+#app-navigation .app-navigation__list-item--active a,
+#app-navigation .app-navigation__list-item--active span {
+  background: rgba(124, 58, 61, 0.55) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+#app-navigation li.active > a,
+#app-navigation .active > a,
+#app-navigation .app-navigation-entry-link.active {
+  border-left: 3.5px solid #cbab58 !important;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+html[dir='rtl'] #app-navigation li.active > a,
+body[dir='rtl'] #app-navigation li.active > a,
+html[dir='rtl'] #app-navigation .active > a,
+body[dir='rtl'] #app-navigation .active > a {
+  border-left: none !important;
+  border-right: 3.5px solid #cbab58 !important;
+  border-radius: 10px 0 0 10px !important;
+}
+
+/* Floating Navigation Toggle Button */
+#app-navigation-toggle,
+.app-navigation-toggle,
+button.app-navigation-toggle {
+  background: rgba(41, 13, 13, 0.75) !important;
+  border: 1px solid rgba(203, 171, 88, 0.4) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#app-navigation-toggle svg,
+.app-navigation-toggle svg {
+  fill: #cbab58 !important;
+  stroke: #cbab58 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Settings Page: Unified Luxury Glassmorphism & Flawless Typography
+   -------------------------------------------------------------------------- */
+/* Light Mode (Default) Settings Container */
 #body-settings #app-content,
 #body-settings #app-content-wrapper,
 #body-settings #app-content-settings,
@@ -298,7 +433,7 @@ body[dir='rtl'] #header .logo {
   color: #290d0d !important;
 }
 
-/* Eradicate Individual Chunky Bricks Around Every Input */
+/* Eradicate Individual Chunky Bricks Inside Settings */
 #body-settings section,
 #body-settings .section,
 #body-settings .app-settings-section,
@@ -315,7 +450,7 @@ body[dir='rtl'] #header .logo {
   color: #290d0d !important;
 }
 
-/* Section Headings (Deep Crimson with Gold Border) */
+/* Section Headings in Light Mode */
 #body-settings h2,
 #body-settings h3,
 #body-settings h4,
@@ -333,19 +468,18 @@ body[dir='rtl'] #header .logo {
   margin-bottom: 16px !important;
 }
 
-/* Labels, Descriptions & Field Hints */
+/* Labels & Text in Light Mode */
 #body-settings label,
 #body-settings p,
 #body-settings span,
 #body-settings .hint,
-#body-settings .description,
-#body-settings h3 {
+#body-settings .description {
   color: #290d0d !important;
   font-weight: 600 !important;
   font-size: 14.5px !important;
 }
 
-/* Form Inputs in Settings (Clean White, High Contrast, Normal Proportions) */
+/* Form Inputs in Light Mode */
 #body-settings input[type='text'],
 #body-settings input[type='password'],
 #body-settings input[type='email'],
@@ -374,13 +508,10 @@ body[dir='rtl'] #header .logo {
   outline: none !important;
 }
 
-/* Completely Suppress Any Black Badge Labels */
-#body-settings label.floating-label,
-#body-settings label.input-label,
-#body-settings .input-wrapper label:not(.checkbox-label) {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
+/* Radio buttons & Checkboxes */
+input[type='radio'],
+input[type='checkbox'] {
+  accent-color: #7c3a3d !important;
 }
 
 /* Settings Primary Buttons */
@@ -407,68 +538,128 @@ body[dir='rtl'] #header .logo {
 }
 
 /* --------------------------------------------------------------------------
-   6. Left / Right Navigation Sidebar Across ALL Pages
+   7. COMPLETE DARK MODE SYSTEM (.theme--dark / [data-theme="dark"])
    -------------------------------------------------------------------------- */
-#app-navigation,
-.app-navigation {
-  background: rgba(20, 10, 10, 0.5) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-right: 1px solid rgba(203, 171, 88, 0.2) !important;
+.theme--dark,
+[data-theme='dark'],
+body.theme--dark,
+body[data-theme='dark'] {
+  --color-main-background: #1a0a0a !important;
+  --color-main-text: #ffffff !important;
+  --color-primary: #7c3a3d !important;
+  --color-primary-element: #7c3a3d !important;
+  --color-border: rgba(203, 171, 88, 0.35) !important;
 }
 
-/* Sidebar Section Headers ("Personal", "Administration") */
-#app-navigation .app-navigation__header,
-#app-navigation h2,
-#app-navigation h3,
-#app-navigation .nav-header {
-  color: #cbab58 !important;
-  font-weight: 800 !important;
-  font-size: 15px !important;
-  letter-spacing: 0.5px !important;
-  padding: 16px 18px 6px 18px !important;
-  text-transform: uppercase !important;
+/* Dark Mode Background Overlay */
+.theme--dark html,
+.theme--dark body,
+.theme--dark #body-user,
+.theme--dark #body-settings,
+[data-theme='dark'] body {
+  background: linear-gradient(135deg, rgba(15, 6, 6, 0.92) 0%, rgba(32, 12, 12, 0.9) 100%),
+              url('/custom_backgrounds/neocare-bg-fluid.png') no-repeat center center fixed !important;
+  background-size: cover !important;
 }
 
-#app-navigation ul li a,
-#app-navigation li a,
-.app-navigation__list-item a,
-#app-navigation a,
-#app-navigation span:not(.app-navigation-entry__counter) {
-  color: #e3dbd9 !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  transition: all 0.2s ease !important;
-}
-
-#app-navigation svg,
-#app-navigation [class^='icon-'],
-#app-navigation [class*=' icon-'] {
-  fill: #cbab58 !important;
-  stroke: #cbab58 !important;
-  color: #cbab58 !important;
-  opacity: 0.95 !important;
-}
-
-#app-navigation ul li.active > a,
-#app-navigation li.active a,
-.app-navigation__list-item--active a {
-  background: rgba(124, 58, 61, 0.5) !important;
+/* Dark Mode Settings Container & Cards */
+.theme--dark #body-settings #app-content,
+.theme--dark #body-settings #app-content-wrapper,
+.theme--dark #body-settings #app-content-settings,
+.theme--dark #body-settings .settings-content,
+.theme--dark .dashboard-widget,
+.theme--dark #app-content-dashboard .panel,
+.theme--dark .dashboard-container .widget,
+.theme--dark .widget,
+.theme--dark .modal-container,
+.theme--dark .dialog,
+.theme--dark #expanddiv,
+.theme--dark .user-menu,
+.theme--dark .popover__wrapper,
+[data-theme='dark'] #body-settings #app-content,
+[data-theme='dark'] .dashboard-widget {
+  background: rgba(28, 14, 14, 0.92) !important;
+  backdrop-filter: blur(32px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(180%) !important;
+  border: 1px solid rgba(203, 171, 88, 0.35) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
   color: #ffffff !important;
-  font-weight: 700 !important;
-  border-left: 3.5px solid #cbab58 !important;
-  border-radius: 0 10px 10px 0 !important;
 }
 
-html[dir='rtl'] #app-navigation ul li.active > a,
-body[dir='rtl'] #app-navigation ul li.active > a {
-  border-left: none !important;
-  border-right: 3.5px solid #cbab58 !important;
-  border-radius: 10px 0 0 10px !important;
+/* Dark Mode Headings (Brilliant Gold) */
+.theme--dark h1,
+.theme--dark h2,
+.theme--dark h3,
+.theme--dark h4,
+.theme--dark #body-settings h2,
+.theme--dark #body-settings h3,
+.theme--dark .section h2,
+.theme--dark .section h3,
+.theme--dark .dashboard-widget h2,
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3 {
+  color: #cbab58 !important;
+  border-bottom-color: rgba(203, 171, 88, 0.35) !important;
+}
+
+/* Dark Mode Labels, Paragraphs & Hints */
+.theme--dark p,
+.theme--dark label,
+.theme--dark span,
+.theme--dark .hint,
+.theme--dark .description,
+.theme--dark #body-settings label,
+.theme--dark #body-settings p,
+.theme--dark #body-settings span,
+[data-theme='dark'] p,
+[data-theme='dark'] label,
+[data-theme='dark'] span {
+  color: #e3dbd9 !important;
+}
+
+/* Dark Mode Form Inputs */
+.theme--dark input[type='text'],
+.theme--dark input[type='password'],
+.theme--dark input[type='email'],
+.theme--dark input[type='tel'],
+.theme--dark input[type='date'],
+.theme--dark input[type='search'],
+.theme--dark select,
+.theme--dark textarea,
+[data-theme='dark'] input,
+[data-theme='dark'] select,
+[data-theme='dark'] textarea {
+  background: rgba(18, 8, 8, 0.88) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(203, 171, 88, 0.45) !important;
+}
+
+.theme--dark input:focus,
+.theme--dark select:focus,
+.theme--dark textarea:focus {
+  border-color: #cbab58 !important;
+  box-shadow: 0 0 0 4px rgba(203, 171, 88, 0.25) !important;
+}
+
+/* Dark Mode Links & Radios */
+.theme--dark a,
+[data-theme='dark'] a {
+  color: #cbab58 !important;
+}
+
+.theme--dark a:hover,
+[data-theme='dark'] a:hover {
+  color: #ffffff !important;
+}
+
+.theme--dark input[type='radio'],
+.theme--dark input[type='checkbox'] {
+  accent-color: #cbab58 !important;
 }
 
 /* --------------------------------------------------------------------------
-   7. Universal Dialogs & Modals (Single Frosted Card)
+   8. Universal Dialogs & Modals
    -------------------------------------------------------------------------- */
 .modal-wrapper,
 .modal-container,
@@ -484,24 +675,6 @@ div[role='dialog'],
   box-shadow: 0 32px 90px rgba(41, 13, 13, 0.35) !important;
   color: #290d0d !important;
   overflow: hidden !important;
-}
-
-/* Eradicate Any Pitch-Black Nested Boxes */
-.modal-container__content,
-.modal-container__main,
-.modal-container__sidebar,
-.modal-wrapper__content,
-.modal-wrapper__main,
-.modal-container main,
-.modal-container section,
-div[role='dialog'] main,
-div[role='dialog'] section,
-div[role='dialog'] div[class*='content'],
-div[role='dialog'] div[class*='main'],
-div[role='dialog'] div[class*='sidebar'] {
-  background: transparent !important;
-  color: #290d0d !important;
-  box-shadow: none !important;
 }
 
 .modal-container h1,
@@ -537,7 +710,7 @@ div[role='dialog'] input[type='password'] {
 }
 
 /* --------------------------------------------------------------------------
-   8. Files App: Tables & Lists
+   9. Files App: Tables & Lists
    -------------------------------------------------------------------------- */
 #fileList th,
 table.files-filestable th {
@@ -562,7 +735,7 @@ table.files-filestable th {
 }
 
 /* --------------------------------------------------------------------------
-   9. Native RTL & Arabic Language Support
+   10. Native RTL & Arabic Language Support
    -------------------------------------------------------------------------- */
 html[dir='rtl'],
 body[dir='rtl'],
