@@ -326,20 +326,34 @@ header.header-app {
   border-bottom: 1px solid rgba(203, 171, 88, 0.35) !important;
 }
 
-/* Pure White Logo in Header */
+/* Header Left Container & Trigger (Expanded for Full Brand Wordmark) */
+#header .header-left,
+#header a.header-menu__trigger--logo,
+#header .header-menu__trigger {
+  width: auto !important;
+  min-width: 180px !important;
+  max-width: 240px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+/* Pure White Logo in Header (Full, Complete Display) */
 #header .logo,
+#header .logo-icon,
 #header .header-left .logo,
-#header a.header-left,
-.header-left {
+#header a.header-menu__trigger--logo .logo {
   background-image: url('/custom_backgrounds/neocare_logo_white.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
-  min-width: 140px !important;
+  width: 180px !important;
+  min-width: 180px !important;
   height: 38px !important;
   mask: none !important;
   -webkit-mask: none !important;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
+  margin: 0 8px 0 4px !important;
 }
 
 /* Header Text & App Names (Crisp White) */
