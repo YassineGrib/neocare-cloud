@@ -345,69 +345,54 @@ li[data-id='apps'],
 /* --------------------------------------------------------------------------
    4. Main App Header & Navigation Bar (Pure White Logo & Maximum Contrast)
    -------------------------------------------------------------------------- */
+
+/* Prevent Horizontal Scrollbar */
+html, body {
+  overflow-x: hidden !important;
+}
+
 #header,
 header.header-app {
   background: linear-gradient(135deg, #290d0d 0%, #7c3a3d 100%) !important;
   box-shadow: 0 4px 20px rgba(41, 13, 13, 0.35) !important;
   border-bottom: 1px solid rgba(203, 171, 88, 0.35) !important;
-  overflow: visible !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  overflow: hidden !important;
 }
 
-/* Header Left Container (Logo Zone) */
+/* Header Left Container (Enough Space for Full Logo) */
 #header .header-left {
-  width: auto !important;
-  min-width: 220px !important;
-  max-width: none !important;
+  min-width: 200px !important;
   display: flex !important;
   align-items: center !important;
-  overflow: visible !important;
-  flex-shrink: 0 !important;
+  overflow: hidden !important;
 }
 
-/* Header Right Container (User Actions) */
-#header .header-right {
-  width: auto !important;
-  min-width: auto !important;
-  max-width: none !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: visible !important;
-  flex-shrink: 0 !important;
-}
-
-/* Logo Trigger Link */
-#header a.header-menu__trigger--logo,
-#header .header-menu__trigger {
-  width: auto !important;
-  min-width: auto !important;
-  max-width: none !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: visible !important;
-}
-
-/* Pure White Logo in Header (Full, Complete Display - Never Cropped) */
-#header .logo,
-#header .logo-icon,
+/* Pure White Logo in Header (Full, Complete Display) */
+#header .logo.logo-icon,
+#header div.logo.logo-icon,
 #header .header-left .logo,
-#header a.header-menu__trigger--logo .logo {
+#header .header-left div.logo {
   background-image: url('/custom_backgrounds/neocare_logo_white.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  width: 200px !important;
-  min-width: 200px !important;
-  height: 44px !important;
+  width: 180px !important;
+  min-width: 180px !important;
+  height: 34px !important;
   mask: none !important;
   -webkit-mask: none !important;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
-  margin: 0 16px !important;
+  filter: none !important;
+  margin: 0 8px !important;
   display: block !important;
-  overflow: visible !important;
-  flex-shrink: 0 !important;
+}
+
+/* RTL Header Logo Alignment */
+html[dir='rtl'] #header .logo.logo-icon,
+html[dir='rtl'] #header div.logo.logo-icon,
+body[dir='rtl'] #header .logo.logo-icon,
+body[dir='rtl'] #header div.logo.logo-icon {
+  background-position: center !important;
+  margin: 0 8px !important;
 }
 
 /* Header Text & App Names (Crisp White) */
@@ -876,46 +861,15 @@ body.rtl {
   text-align: right !important;
 }
 
-/* RTL Header: Full Flex Reversal */
-html[dir='rtl'] #header,
-body[dir='rtl'] #header {
-  flex-direction: row-reverse !important;
-}
-
-html[dir='rtl'] #header .header-left,
-body[dir='rtl'] #header .header-left {
-  flex-direction: row-reverse !important;
-}
-
-html[dir='rtl'] #header .header-right,
-body[dir='rtl'] #header .header-right {
-  flex-direction: row-reverse !important;
-}
-
-/* RTL Logo: Never Cropped */
+/* RTL Header Adjustments */
 html[dir='rtl'] #header .logo,
-html[dir='rtl'] #header .logo-icon,
-html[dir='rtl'] #header .header-left .logo,
 body[dir='rtl'] #header .logo,
-body[dir='rtl'] #header .logo-icon,
 body[dir='rtl'] #header .header-left .logo {
-  background-position: center !important;
-  margin: 0 16px !important;
+  background-position: right center !important;
+  margin: 0 4px 0 12px !important;
 }
 
-/* RTL App Navigation Links */
-html[dir='rtl'] #header .app-menu-main,
-body[dir='rtl'] #header .app-menu-main {
-  flex-direction: row-reverse !important;
-}
-
-/* RTL Sidebar: Right-side Border Indicator */
-html[dir='rtl'] #app-navigation,
-body[dir='rtl'] #app-navigation {
-  border-right: none !important;
-  border-left: 1px solid rgba(203, 171, 88, 0.2) !important;
-}
-
+/* RTL Sidebar Active Indicator (Right Border) */
 html[dir='rtl'] #app-navigation ul li.active > a,
 body[dir='rtl'] #app-navigation ul li.active > a,
 body[dir='rtl'] #app-navigation li.active a {
