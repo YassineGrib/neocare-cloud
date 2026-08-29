@@ -1,12 +1,12 @@
 /* ==========================================================================
-   NEOCARE CLINIC - Nextcloud Web Custom Stylesheet
+   NEOCARE CLINIC - Nextcloud Web Custom Stylesheet (Anti-Slop Craft Edition)
    Brand: Neocare Clinic (Kuwait)
-   Palette: Crimson Red (#7c3a3d), Dark Maroon (#290d0d), Gold (#cbab58)
-   Typography: IBM Plex Sans Arabic
+   Palette: Crimson Red (#7c3a3d), Dark Maroon (#290d0d), Gold (#cbab58), Warm Gray (#e3dbd9)
+   Typography: IBM Plex Sans Arabic (100 - 700)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Typography: Local IBM Plex Sans Arabic Font-Face Definitions
+   1. Typography: IBM Plex Sans Arabic (Self-Hosted WOFF/TTF)
    -------------------------------------------------------------------------- */
 @font-face {
   font-family: 'IBM Plex Sans Arabic';
@@ -58,25 +58,249 @@
   font-display: swap;
 }
 
-/* Universal Typography Enforcement */
+/* Universal Typography & Anti-Aliasing */
 html, body, input, button, select, textarea,
 .app-name, .header-appname, .unified-search__input,
 .button-vue, .primary, .dashboard-widget, .crumb,
-h1, h2, h3, h4, h5, h6, p, span, a, div {
+h1, h2, h3, h4, h5, h6, p, span, a, div, label {
   font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* --------------------------------------------------------------------------
-   2. Global Header & App Navigation Bar
+   2. Login Page: Full Neocare Clinic World-Class Re-Engineering
+   -------------------------------------------------------------------------- */
+#body-login {
+  background: linear-gradient(135deg, rgba(41, 13, 13, 0.45) 0%, rgba(124, 58, 61, 0.4) 100%),
+              url('/custom_backgrounds/neocare-bg-fluid.png') no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+
+/* Transparent Header & Neocare Logo */
+#body-login header,
+#body-login #header,
+#body-login .header-guest {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding-top: 40px !important;
+  margin-bottom: 24px !important;
+}
+
+#body-login .header-guest .logo,
+#body-login #header .logo,
+#body-login .logo {
+  background: url('/core/img/logo/logo.png') no-repeat center center !important;
+  background-size: contain !important;
+  width: 280px !important;
+  height: 100px !important;
+  max-width: 90vw !important;
+  margin: 0 auto !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  filter: drop-shadow(0 6px 20px rgba(41, 13, 13, 0.4)) !important;
+}
+
+/* Reset All Outer Containers (Zero Ghost Frames) */
+#body-login .wrapper,
+#body-login main,
+#body-login .guest-content,
+#body-login .guest-box,
+#body-login .login-wrapper,
+#body-login #login-form-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  max-width: 440px !important;
+  margin: 0 auto !important;
+}
+
+/* Single Frosted Glass Card Floating on Wallpaper */
+#body-login #login,
+#body-login form.login-form,
+#body-login form {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 24px 64px rgba(41, 13, 13, 0.32),
+              0 2px 12px rgba(203, 171, 88, 0.25) !important;
+  padding: 40px 36px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Title on Login Card */
+#body-login h1,
+#body-login h2,
+#body-login .login-form h1,
+#body-login .login-form h2 {
+  color: #7c3a3d !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin-bottom: 24px !important;
+  letter-spacing: -0.3px !important;
+}
+
+/* Input Fields */
+#body-login .input-wrapper,
+#body-login .input-field {
+  margin-bottom: 16px !important;
+  position: relative !important;
+}
+
+#body-login input[type='text'],
+#body-login input[type='password'] {
+  background: #ffffff !important;
+  color: #290d0d !important;
+  border: 1.5px solid #cac4d0 !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#body-login input[type='text']:focus,
+#body-login input[type='password']:focus {
+  border-color: #7c3a3d !important;
+  box-shadow: 0 0 0 4px rgba(124, 58, 61, 0.18) !important;
+  outline: none !important;
+}
+
+/* Input Labels Overrides */
+#body-login label,
+#body-login .input-label,
+#body-login label.floating-label {
+  background: transparent !important;
+  color: #7c3a3d !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+  transform: none !important;
+  position: static !important;
+}
+
+/* Remember Me Checkbox */
+#body-login .checkbox-label,
+#body-login label[for='remember_login'],
+#body-login .remember-login-container label,
+#body-login form label,
+#body-login form span {
+  color: #290d0d !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+}
+
+#body-login input[type='checkbox'] {
+  accent-color: #7c3a3d !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 4px !important;
+}
+
+/* Primary Action Login Button */
+#body-login .button-vue--vue-primary,
+#body-login button.primary,
+#body-login input[type='submit'],
+#body-login .login-form input[type='submit'] {
+  background: linear-gradient(135deg, #7c3a3d 0%, #914923 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  letter-spacing: 0.3px !important;
+  padding: 14px 28px !important;
+  width: 100% !important;
+  box-shadow: 0 6px 20px rgba(124, 58, 61, 0.35) !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin-top: 12px !important;
+}
+
+#body-login .button-vue--vue-primary:hover,
+#body-login button.primary:hover,
+#body-login input[type='submit']:hover {
+  background: linear-gradient(135deg, #cbab58 0%, #7c3a3d 100%) !important;
+  box-shadow: 0 8px 24px rgba(203, 171, 88, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Links Below Card */
+#body-login .actions,
+#body-login .extra-actions,
+#body-login .login-additional {
+  margin-top: 24px !important;
+  text-align: center !important;
+}
+
+#body-login .actions a,
+#body-login .extra-actions a,
+#body-login #lost-password,
+#body-login a.lost-password {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 8px rgba(41, 13, 13, 0.8) !important;
+  transition: color 0.2s ease !important;
+  display: block !important;
+  margin: 8px 0 !important;
+}
+
+#body-login .actions a:hover,
+#body-login .extra-actions a:hover,
+#body-login #lost-password:hover {
+  color: #cbab58 !important;
+}
+
+/* Login Footer */
+#body-login footer,
+#body-login footer.guest-box {
+  background: rgba(41, 13, 13, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(203, 171, 88, 0.3) !important;
+  padding: 10px 24px !important;
+  margin: 32px auto 20px auto !important;
+  max-width: 360px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+#body-login footer p.info,
+#body-login footer a {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+#body-login footer a.entity-name {
+  color: #cbab58 !important;
+  font-weight: 700 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Main App Header & Navigation Bar
    -------------------------------------------------------------------------- */
 #header,
 header.header-app {
   background: linear-gradient(135deg, #290d0d 0%, #7c3a3d 100%) !important;
   box-shadow: 0 4px 20px rgba(41, 13, 13, 0.25) !important;
-  border-bottom: 1px solid rgba(203, 171, 88, 0.25) !important;
+  border-bottom: 1px solid rgba(203, 171, 88, 0.3) !important;
 }
 
-/* Header App Navigation Icons */
 #header .app-menu-main li a,
 #header .header-menu li a,
 .header-menu__wrapper a {
@@ -91,163 +315,8 @@ header.header-app {
   border-bottom: 2px solid #cbab58 !important;
 }
 
-/* Header Unified Search Bar */
-.unified-search__trigger,
-.unified-search__input-wrapper {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(8px) !important;
-  border-radius: 24px !important;
-  color: #ffffff !important;
-  transition: all 0.25s ease !important;
-}
-
-.unified-search__trigger:hover,
-.unified-search__input-wrapper:focus-within {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: #cbab58 !important;
-  box-shadow: 0 0 12px rgba(203, 171, 88, 0.35) !important;
-}
-
 /* --------------------------------------------------------------------------
-   3. Login Page Styling & Branding
-   -------------------------------------------------------------------------- */
-#body-login {
-  background: linear-gradient(135deg, rgba(41, 13, 13, 0.82) 0%, rgba(124, 58, 61, 0.75) 100%),
-              url('/apps/theming/img/background/neocare-bg-fluid.png') no-repeat center center fixed !important;
-  background-size: cover !important;
-}
-
-/* Login Header & Logo */
-.header-guest,
-#header.header-guest {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-.header-guest .logo,
-#header .logo {
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4)) !important;
-}
-
-/* Login Card Container */
-.guest-content {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-#body-login #login,
-#body-login .login-form {
-  background: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(203, 171, 88, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(41, 13, 13, 0.35) !important;
-  padding: 36px 32px !important;
-}
-
-/* Login Titles, Labels & Remember Me */
-#body-login h1,
-#body-login h2,
-#body-login .login-form label,
-#body-login label,
-#body-login .toggle-password,
-#body-login .checkbox-label,
-#body-login label[for="remember_login"],
-#body-login span {
-  color: #290d0d !important;
-  font-weight: 600 !important;
-}
-
-/* Floating Input Label Badges */
-#body-login .input-label,
-#body-login .float-label,
-#body-login label.floating-label {
-  background: #ffffff !important;
-  color: #7c3a3d !important;
-  padding: 2px 6px !important;
-  border-radius: 4px !important;
-  font-weight: 600 !important;
-}
-
-/* Login Inputs */
-#body-login input[type='text'],
-#body-login input[type='password'] {
-  background: #ffffff !important;
-  color: #290d0d !important;
-  border-radius: 10px !important;
-  border: 1.5px solid #cac4d0 !important;
-  padding: 14px 16px !important;
-  font-size: 15px !important;
-  transition: all 0.2s ease !important;
-}
-
-#body-login input[type='text']:focus,
-#body-login input[type='password']:focus {
-  border-color: #7c3a3d !important;
-  box-shadow: 0 0 0 3px rgba(124, 58, 61, 0.2) !important;
-}
-
-/* Primary Action & Login Buttons */
-.button-vue--vue-primary,
-button.primary,
-input[type='submit'],
-.login-form input[type='submit'] {
-  background: linear-gradient(135deg, #7c3a3d 0%, #914923 100%) !important;
-  border: none !important;
-  border-radius: 10px !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  letter-spacing: 0.3px !important;
-  padding: 14px 24px !important;
-  box-shadow: 0 4px 16px rgba(124, 58, 61, 0.35) !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.button-vue--vue-primary:hover,
-button.primary:hover,
-input[type='submit']:hover,
-.login-form input[type='submit']:hover {
-  background: linear-gradient(135deg, #cbab58 0%, #7c3a3d 100%) !important;
-  box-shadow: 0 6px 20px rgba(203, 171, 88, 0.45) !important;
-  transform: translateY(-2px) !important;
-}
-
-/* Login Additional Links */
-#body-login .actions a,
-#body-login .extra-actions a,
-#body-login a.lost-password,
-#body-login #lost-password {
-  color: rgba(255, 255, 255, 0.9) !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
-  font-weight: 500 !important;
-  transition: color 0.2s ease !important;
-}
-
-#body-login .actions a:hover,
-#body-login .extra-actions a:hover,
-#body-login a.lost-password:hover {
-  color: #cbab58 !important;
-}
-
-/* Login Footer */
-#body-login footer p.info,
-#body-login footer a {
-  color: #ffffff !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
-  font-weight: 500 !important;
-}
-
-#body-login footer a:hover {
-  color: #cbab58 !important;
-}
-
-/* --------------------------------------------------------------------------
-   4. Modern Glassmorphism Dashboard & Widgets
+   4. Glassmorphism Dashboard & Widgets
    -------------------------------------------------------------------------- */
 #app-content-dashboard {
   padding: 32px 24px !important;
@@ -256,36 +325,35 @@ input[type='submit']:hover,
 .dashboard-widget,
 #app-content-dashboard .panel,
 .dashboard-container .widget {
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-radius: 20px !important;
   border: 1px solid rgba(227, 219, 217, 0.8) !important;
-  box-shadow: 0 8px 24px rgba(41, 13, 13, 0.06) !important;
+  box-shadow: 0 10px 30px rgba(41, 13, 13, 0.06) !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
 
 .dashboard-widget:hover,
 #app-content-dashboard .panel:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 14px 32px rgba(124, 58, 61, 0.12) !important;
-  border-color: rgba(203, 171, 88, 0.5) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 40px rgba(124, 58, 61, 0.14) !important;
+  border-color: rgba(203, 171, 88, 0.6) !important;
 }
 
 .dashboard-widget h2,
 .dashboard-widget .title,
 h2.widget-title {
   color: #7c3a3d !important;
-  font-weight: 600 !important;
-  border-bottom: 2px solid rgba(203, 171, 88, 0.3) !important;
-  padding-bottom: 8px !important;
-  margin-bottom: 14px !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid rgba(203, 171, 88, 0.35) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 16px !important;
 }
 
 /* --------------------------------------------------------------------------
-   5. Files View, Sidebar & Navigation Highlighting
+   5. Files View & Sidebar
    -------------------------------------------------------------------------- */
-/* Navigation Drawer / Sidebar Active Items */
 #app-navigation ul li.active > a,
 #app-navigation ul li a:hover {
   background-color: rgba(124, 58, 61, 0.08) !important;
@@ -295,10 +363,9 @@ h2.widget-title {
 
 #app-navigation ul li.active > a {
   border-left: 4px solid #7c3a3d !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
-/* Files Table Row Hover & Active State */
 #fileList tr:hover,
 .files-list__row:hover {
   background-color: rgba(124, 58, 61, 0.04) !important;
@@ -309,7 +376,6 @@ h2.widget-title {
   background-color: rgba(124, 58, 61, 0.1) !important;
 }
 
-/* Links and Accents */
 a, .primary-color {
   color: #7c3a3d !important;
   transition: color 0.2s ease !important;
@@ -317,10 +383,4 @@ a, .primary-color {
 
 a:hover {
   color: #cbab58 !important;
-}
-
-/* Floating Action Button (New Button) */
-.button-vue--vue-primary.new-button,
-#controls .actions a.button {
-  border-radius: 10px !important;
 }
