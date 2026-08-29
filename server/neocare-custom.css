@@ -359,10 +359,14 @@ header.header-app {
   overflow: hidden !important;
 }
 
-/* Header Left Container (Enough Space for Full Logo) */
-#header .header-left {
-  min-width: 200px !important;
-  padding-inline-start: 0 !important;
+/* Header Left Container (Tight Flush Alignment) */
+#header .header-left,
+#header a.header-menu__trigger--logo,
+#header .header-menu__trigger--logo {
+  min-width: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: flex !important;
   align-items: center !important;
 }
@@ -375,19 +379,45 @@ header.header-app {
   background-image: url('/custom_backgrounds/neocare_logo_white.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
-  background-position: center !important;
   position: relative !important;
   inset-inline-start: auto !important;
   top: auto !important;
   bottom: auto !important;
-  width: 180px !important;
-  min-width: 180px !important;
+  width: 155px !important;
+  min-width: 155px !important;
   height: 36px !important;
   mask: none !important;
   -webkit-mask: none !important;
   filter: none !important;
   display: inline-flex !important;
-  margin: 0 6px !important;
+}
+
+/* LTR Alignment (Flush to Left Edge) */
+html[dir='ltr'] #header .header-left,
+body[dir='ltr'] #header .header-left,
+html:not([dir='rtl']) #header .header-left {
+  margin-left: 12px !important;
+  margin-right: 8px !important;
+}
+
+html[dir='ltr'] #header .logo,
+body[dir='ltr'] #header .logo,
+html:not([dir='rtl']) #header .logo {
+  background-position: left center !important;
+  margin: 0 8px 0 0 !important;
+}
+
+/* RTL Alignment (Flush to Right Edge) */
+html[dir='rtl'] #header .header-left,
+body[dir='rtl'] #header .header-left {
+  margin-right: 12px !important;
+  margin-left: 8px !important;
+}
+
+html[dir='rtl'] #header .logo,
+body[dir='rtl'] #header .logo {
+  background-position: right center !important;
+  margin: 0 0 0 8px !important;
 }
 
 /* Header Text & App Names (Crisp White) */
