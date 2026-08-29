@@ -362,7 +362,7 @@ header.header-app {
 /* Header Left Container (Enough Space for Full Logo) */
 #header .header-left {
   min-width: 200px !important;
-  padding-inline-start: 8px !important;
+  padding-inline-start: 0 !important;
   display: flex !important;
   align-items: center !important;
 }
